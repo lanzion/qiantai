@@ -33,6 +33,7 @@ let shopcart = [
 
 export default new Router({
   routes: [
+    { path: '/', redirect: '/goods/list' },
     //  账号管理路由配置
     { name: 'login', path: '/login', component: Login },
 

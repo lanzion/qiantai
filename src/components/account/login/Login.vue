@@ -4,12 +4,12 @@
             <!-- model用来设置表单所有字段, rules用来设置表单校验规则的(可省略, 但是如果需要表单校验功能, 必须写)  -->
             <el-form :model="ruleForm2" status-icon :rules="rules2" ref="ruleForm2" label-width="100px" class="demo-ruleForm">
                 <!-- label用来设置表单提示文字, prop用来指定当前表单代表的字段名(可省略, 但是如果需要表单校验与重置功能, 必须写) -->
-                <el-form-item label="用户名" prop="uname">
+                <el-form-item label="用户名" prop="user_name">
                     <!-- v-model双向数据绑定, 需要绑定data里的数据, 将来要把这些数据提交给后端 -->
-                    <el-input type="text" v-model="ruleForm2.uname" auto-complete="off" ></el-input>
+                    <el-input type="text" v-model="ruleForm2.user_name" auto-complete="off" ></el-input>
                 </el-form-item>
-                <el-form-item label="密码" prop="upwd">
-                    <el-input type="password" v-model="ruleForm2.upwd" auto-complete="off"></el-input>
+                <el-form-item label="密码" prop="password">
+                    <el-input type="password" v-model="ruleForm2.password" auto-complete="off"></el-input>
                 </el-form-item>
                 <el-form-item>
                     <el-button type="primary" @click="submitForm('ruleForm2')">登录</el-button>
@@ -35,14 +35,14 @@ export default {
     // };
     return {
       ruleForm2: {
-        uname: "ivanyb",
-        upwd: "123"
+        user_name: "ivanyb",
+        password: "123"
       },
       rules2: {
-        uname: [
+        user_name: [
           { required: true, message: "请输入用户名", trigger: "blur" }
         ],
-        upwd: [{ required: true, message: "请输入密码", trigger: "blur" }]
+        password: [{ required: true, message: "请输入密码", trigger: "blur" }]
       }
     };
   },
@@ -53,9 +53,9 @@ export default {
             if(res.data.status==0){
                 this.$alert('登录成功','提示',{
                     callback:()=>{
-                        localStorage.setItem('uname',res.data.message.uname)
+                        localStorage.setItem('user_name',res.data.message.user_name)
                         // 登录成功，页面跳转
-                        this.$router.push({path:this.$route.query.next || "/admin"})
+                        this.$router.push({path:this.$route.query.next || "/"})
                     }
                 })
             }else{
