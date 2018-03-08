@@ -31,13 +31,15 @@ let shopcart = [
 ]
 
 
-export default new Router({
+let router = new Router({
   routes: [
     { path: '/', redirect: '/goods/list' },
     //  账号管理路由配置
     { name: 'login', path: '/login', component: Login },
 
     // 商城路由配置
-    { name: 'shop', path: '/', component: Shop,children:[...goods,...order,...shopcart]}
+    { name: 'shop', path: '/', component: Shop, children: [...goods, ...order, ...shopcart] }
   ]
 })
+
+export default router;

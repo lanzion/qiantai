@@ -91,7 +91,7 @@
                                         <dd>
                                             <div class="btn-buy" id="buyButton">
                                                 <button class="buy" onclick="cartAdd(this,'/',1,'/shopping.html');">立即购买</button>
-                                                <button class="add" onclick="cartAdd(this,'/',0,'/cart.html');">加入购物车</button>
+                                                <button class="add" @click="cartAdd">加入购物车</button>
                                             </div>
                                         </dd>
                                     </dl>
@@ -159,7 +159,13 @@ export default {
           this.goodsList = res.data.message;
         }
       });
-    }
+    },
+    //加入购物车
+    cartAdd(){
+        let newNum=this.num + (this.$store.state.cart[this.id] || 0)
+        this.$store.commit('modify', { id: this.id, num: newNum });
+        this.num=0;
+    } 
   },
   mounted() {},
   created() {
@@ -180,7 +186,7 @@ export default {
       };
       setTimeout(() => {
         var _magnifier = $().imgzoon(magnifierConfig);
-      }, 100);
+      }, 20);
     }
   }
 };

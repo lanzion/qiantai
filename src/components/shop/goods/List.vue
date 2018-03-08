@@ -49,9 +49,9 @@
 
                     <!--幻灯片 -轮播图  -->
                     <div class="left-705">
-                        <el-carousel  height="340px" >
+                        <el-carousel  height="340px" width='700px'>
                             <el-carousel-item v-for="item in goodsList.sliderlist" :key="item.id">
-                                <img :src="item.img_url" :alt="item.title"  height="100%" >
+                                <img :src="item.img_url" :alt="item.title"   width="100%">
                             </el-carousel-item>
                         </el-carousel>
                     </div>

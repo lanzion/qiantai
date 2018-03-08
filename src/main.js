@@ -6,6 +6,10 @@ import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
+import storeCart from "./store/cart.js";
+import Vuex from "vuex";
+Vue.use(Vuex)
+
 import 'normalize.css';
 
 import axios from "axios";
@@ -34,5 +38,6 @@ new Vue({
   el: '#app',
   router,
   components: { App },
-  template: '<App/>'
+  template: '<App/>',
+  store: new Vuex.Store(storeCart)
 })
